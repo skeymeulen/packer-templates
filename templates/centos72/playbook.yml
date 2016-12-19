@@ -37,3 +37,13 @@
         api_secret: "{{ cs_api_secret_key }}"
         name: "{{ name }}"
         state: extracted
+    - name: download packer
+      get_url:
+        url: https://releases.hashicorp.com/packer/0.12.1/packer_0.12.1_linux_amd64.zip
+        dest: ./packer.zip
+    - name: extract packer
+      unarchive: 
+        src: ./packer.zip
+        dest: ./packer
+    - name: Build and provision offical template
+      shell: "./packer template.json -var-file=./variables.json"
