@@ -25,7 +25,7 @@
             "keypair": "glenn.bostoencloudalize.com-jenkins-85a946e85f4e43f11981edcad6e7db1e",
 
             "template_name": "{{user `template_output_name`}}",
-            "template_display_text": "CentOS 7.2",
+            "template_display_text": "{{user `template_output_name`}}",
             "template_featured": true,
             "template_password_enabled": false,
             "template_scalable": true,
