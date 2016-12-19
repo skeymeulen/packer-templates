@@ -1,7 +1,7 @@
 {
     "variables": {
         "cloudstack_api_key": "{{env `cloudstack_api_key`}}",
-        "cloudstack_secret_key":"{{env `cloudstack_secret_key`}}",
+        "cloudstack_secret_key":"{{env `cloudstack_secret_key`}}"
     },
     "builders": [
         {
