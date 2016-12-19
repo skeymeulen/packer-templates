@@ -1,8 +1,12 @@
 {
+    "variables": {
+        "cloudstack_api_key": "{{env `cloudstack_api_key`}}",
+        "cloudstack_secret_key":"{{env `cloudstack_secret_key`}}",
+    },
     "builders": [
         {
             "type": "cloudstack",
-            "api_url": "http://10.5.11.13:8080/client/api",
+            "api_url": "htwtp://10.5.11.13:8080/client/api",
             "api_key": "{{user `cloudstack_api_key`}}",
             "secret_key": "{{user `cloudstack_secret_key`}}",
             "hypervisor": "XenServer",
@@ -17,7 +21,7 @@
             "source_template": "CentOS 7.2",
             "zone": "TST01",
             "keypair": "glenn.bostoencloudalize.com-jenkins-85a946e85f4e43f11981edcad6e7db1e",
-            
+
             "template_name": "CentOS 7.2_packer",
             "template_display_text": "CentOS 7.2_packer",
             "template_featured": true,
