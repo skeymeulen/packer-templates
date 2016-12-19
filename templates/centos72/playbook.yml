@@ -24,6 +24,7 @@
         url: "http://srep001.hay01.gdaas.com/cloud/{{ name }}.vhd"
         hypervisor: XenServer
         format: VHD
+        state: extracted
         cross_zones: yes
         os_type: "{{ osdescription }}"
         poll_async: true
