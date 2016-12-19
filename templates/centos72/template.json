@@ -20,11 +20,11 @@
             "ssh_private_key_file": "/var/jenkins_home/.ssh/id_rsa",
             "network": "Server Network 1",
             "service_offering": "IaaS XS",
-            "source_template": "{{user `template_input_name}}",
+            "source_template": "{{user `template_input_name`}}",
             "zone": "TST01",
             "keypair": "glenn.bostoencloudalize.com-jenkins-85a946e85f4e43f11981edcad6e7db1e",
 
-            "template_name": "{{user `template_output_name}}",
+            "template_name": "{{user `template_output_name`}}",
             "template_display_text": "CentOS 7.2",
             "template_featured": true,
             "template_password_enabled": false,
