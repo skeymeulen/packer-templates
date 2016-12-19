@@ -3,8 +3,9 @@
   connection: local
   tasks:
     - name: create dummy file
-      wget http://www.google.be
-      dest: ./google.html
+      get_url:
+        url: http://www.google.be
+        dest: ./google.html
     - name: load variables
       include_vars: config.yml
     - shell: echo "image_$(date +%d-%m-%y-%H-%M-%S)"
