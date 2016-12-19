@@ -39,4 +39,4 @@
       easy_install:
         name: packer
     - name: Build and provision offical template
-      shell: "./packer build template.json -var-file=./variables.json"
+      shell: "./packer build -var-file=./variables.json template.json"
