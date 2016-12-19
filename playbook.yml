@@ -3,7 +3,7 @@
   connection: local
   tasks:
     - name: load variables
-      include_vars: {{ config_variables }}
+      include_vars: "{{ packer_config_file }}"
     - name: load secrets
       include_vars: secrets.yml
     - name: get cloud image
