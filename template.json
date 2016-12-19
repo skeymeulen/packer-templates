@@ -4,7 +4,7 @@
         "cloudstack_secret_key":"{{env `cloudstack_secret_key`}}",
         "template_input_name":"{{env `name`}}",
         "template_output_name":"{{env `name`}}-gold",
-        "ssh_username";"{{env `ssh_username`}}"
+        "ssh_username":"{{env `ssh_username`}}"
     },
     "builders": [
         {
