@@ -12,9 +12,6 @@
       shell: "sudo docker run --rm=true -v $PWD:/tmp schvin/qemu-img convert -p -O vpc image.qcow2 image.vhd"
     - name: rsync image to srep001
       shell: "rsync ./image.vhd root@srep001.hay01.gdaas.com:/root/data/cloud/{{ name }}.vhd"
-    - name: install cs via pip
-      pip:
-        name: cs
     - name: Register template on cloudstack
       local_action:
         module: cs_template
