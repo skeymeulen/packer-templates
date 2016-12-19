@@ -13,8 +13,8 @@
     - name: convert image
       shell: "sudo docker run --rm=true -v $PWD:/tmp schvin/qemu-img convert -p -O vpc image.qcow2 image.vhd"
     - synchronize:
-      src: ./image.vhd
-      dest: "rsync://root@srep001.hay01.gdaas.com:/root/data/cloud/{{ name }}.vhd"
+        src: ./image.vhd
+        dest: "rsync://root@srep001.hay01.gdaas.com:/root/data/cloud/{{ name }}.vhd"
     - name: Register template on cloudstack
       local_action:
         module: cs_template
