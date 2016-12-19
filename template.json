@@ -2,8 +2,9 @@
     "variables": {
         "cloudstack_api_key": "{{env `cloudstack_api_key`}}",
         "cloudstack_secret_key":"{{env `cloudstack_secret_key`}}",
-        "template_input_name":"centos72",
-        "template_output_name":"{{env `template_output_name`}}"
+        "template_input_name":"{{env `name`}}",
+        "template_output_name":"{{env `name`}}-gold",
+        "ssh_username";"{{env `ssh_username`}}"
     },
     "builders": [
         {
@@ -13,7 +14,7 @@
             "secret_key": "{{user `cloudstack_secret_key`}}",
             "hypervisor": "XenServer",
             "cidr_list": ["0.0.0.0/0"],
-            "ssh_username": "centos",
+            "ssh_username": "{{user `ssh_username` }}",
             "ssh_pty": true,
             "ssh_timeout": "10m",
             "ssh_handshake_attempts": "100",

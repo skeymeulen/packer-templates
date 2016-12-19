@@ -13,3 +13,4 @@ passwordenabled: false
 zoneid: -1
 url: http://srep001.hay01.gdaas.com
 downloadurl: http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2
+ssh_username:centos
