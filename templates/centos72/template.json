@@ -22,8 +22,8 @@
             "zone": "TST01",
             "keypair": "glenn.bostoencloudalize.com-jenkins-85a946e85f4e43f11981edcad6e7db1e",
 
-            "template_name": "CentOS 7.2_packer",
-            "template_display_text": "CentOS 7.2_packer",
+            "template_name": "centos-(date +%x-%H-%M-%S)",
+            "template_display_text": "CentOS 7.2",
             "template_featured": true,
             "template_password_enabled": false,
             "template_scalable": true,
