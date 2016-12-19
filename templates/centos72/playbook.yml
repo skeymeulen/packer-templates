@@ -38,12 +38,7 @@
         name: "{{ name }}"
         state: extracted
     - name: download packer
-      get_url:
-        url: https://releases.hashicorp.com/packer/0.12.1/packer_0.12.1_linux_amd64.zip
-        dest: ./packer.zip
-    - name: extract packer
-      unarchive: 
-        src: ./packer.zip
-        dest: .
+      easy_install:
+        name: packer
     - name: Build and provision offical template
-      shell: "./packer build template.json -var-file=./variables.json"
+      shell: "packer build template.json -var-file=./variables.json"
