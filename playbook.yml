@@ -35,8 +35,5 @@
         api_secret: "{{ cs_api_secret_key }}"
         name: "{{ name }}"
         state: extracted
-    - name: download packer
-      easy_install:
-        name: packer
     - name: Build and provision offical template
-      shell: "./packer build -var-file=./variables.json template.json"
+      shell: "packer build -var-file=./variables.json template.json"
