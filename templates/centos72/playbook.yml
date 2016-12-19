@@ -4,6 +4,8 @@
   tasks:
     - name: load variables
       include_vars: config.yml
+    - name: load secrets
+      include_vars: secrets.yml
     - name: get cloud image
       get_url:
         url: "{{ downloadurl }}"
