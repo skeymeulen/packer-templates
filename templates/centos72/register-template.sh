@@ -15,4 +15,4 @@ if [ -z "${ostypeid}" ]; then
 exit 1
 fi
 echo "Info: Found ostypeid ${ostypeid}"
-sudo docker run --rm -v $PWD/data:/data -v $PWD/data/config:/cloudmonkey/config cloudstack/cloudstack-cloudmonkey register template name="${name}" displaytext="${SIZE}" isextractable=${extractable} isfeatured=${featured} ispublic=${public} passwordenabled=${passwordenabled} ostypeid=${ostypeid} format=${format} hypervisor=${hypervisor} zoneid=${zoneid} url="${url}/cloud/$name.vhd"
+sudo docker run --rm -v $PWD/../../data:/data -v $PWD/../../data/config:/cloudmonkey/config cloudstack/cloudstack-cloudmonkey register template name="${name}" displaytext="${SIZE}" isextractable=${extractable} isfeatured=${featured} ispublic=${public} passwordenabled=${passwordenabled} ostypeid=${ostypeid} format=${format} hypervisor=${hypervisor} zoneid=${zoneid} url="${url}/cloud/$name.vhd"
