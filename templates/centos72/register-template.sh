@@ -1,5 +1,5 @@
 #!/bin/sh
-
+. ./cloudmonkey.conf
 #download, convert and upload to repository.
 wget $downloadurl -O $name.qcow2
 sudo docker run --rm=true -v $PWD:/tmp schvin/qemu-img convert -p -O vpc $name.qcow2 $name.vhd
