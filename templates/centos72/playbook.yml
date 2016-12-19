@@ -12,8 +12,9 @@
         dest: ./image.qcow2
     - name: convert image
       shell: "sudo docker run --rm=true -v $PWD:/tmp schvin/qemu-img convert -p -O vpc image.qcow2 image.vhd"
-    - name: rsync image to srep001
-      shell: "rsync ./image.vhd root@srep001.hay01.gdaas.com:/root/data/cloud/{{ name }}.vhd"
+    - synchronize:
+      src: ./image.vhd
+      dest: "rsync://root@srep001.hay01.gdaas.com:/root/data/cloud/{{ name }}.vhd"
     - name: Register template on cloudstack
       local_action:
         module: cs_template
@@ -24,7 +25,6 @@
         url: "http://srep001.hay01.gdaas.com/cloud/{{ name }}.vhd"
         hypervisor: XenServer
         format: VHD
-        state: extracted
         cross_zones: yes
         os_type: "{{ osdescription }}"
         poll_async: true
