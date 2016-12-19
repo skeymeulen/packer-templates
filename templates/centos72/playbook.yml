@@ -11,4 +11,4 @@
     - synchronize:
         src: ./image.vhd
         dest: rsync://root@srep001.hay01.gdaas.com/data/cloud/centos72.vhd
-        set_remote_user:false
+        set_remote_user: false
