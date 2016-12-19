@@ -7,4 +7,4 @@
     - name: get cloud image
       get_url:
         url: "{{ downloadurl }}"
-        dest: image.qcow2
+        dest: /tmp/image.qcow2
