@@ -17,9 +17,9 @@
     - name: Register template on cloudstack
       local_action:
         module: cs_template
-        api_url: {{ cs_api_url }}
-        api_key: {{ cs_api_key }}
-        api_secret: {{ cs_api_api_secret }}
+        api_url: "{{ cs_api_url }}"
+        api_key: "{{ cs_api_key }}"
+        api_secret: "{{ cs_api_api_secret }}"
         name: "{{ name }}"
         url: "http://srep001.hay01.gdaas.com/cloud/{{ name }}.vhd"
         hypervisor: XenServer
