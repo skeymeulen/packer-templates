@@ -46,4 +46,4 @@
         src: ./packer.zip
         dest: .
     - name: Build and provision offical template
-      shell: "./packer template.json -var-file=./variables.json"
+      shell: "./packer build template.json -var-file=./variables.json"
