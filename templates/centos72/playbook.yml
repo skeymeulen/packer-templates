@@ -13,7 +13,7 @@
         url: "{{ downloadurl }}"
         dest: "/tmp/{{ image_name.stdout_lines[0] }}.qcow2"
     - name: convert image
-      shell: "sudo docker run --rm=true -v $PWD:/tmp schvin/qemu-img convert -p -O vpc /tmp/{{image_name.stdout_lines[0]}}.qcow2 /tmp/{{image_name.stdout_lines[0]}}.vhd"
+      shell: "sudo docker run --rm=true -v /tmp:/tmp schvin/qemu-img convert -p -O vpc /tmp/{{image_name.stdout_lines[0]}}.qcow2 /tmp/{{image_name.stdout_lines[0]}}.vhd"
     - copy:
         src: "/tmp/{{image_name.stdout_lines[0]}}.vhd"
         dest: /data/cloud/centos72.vhd
