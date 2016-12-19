@@ -1,0 +1,7 @@
+---
+- hosts:all
+  tasks:
+    - name: get cloud image
+      get_url:
+        url: {{downloadurl}}
+        dest: image.qcow2
