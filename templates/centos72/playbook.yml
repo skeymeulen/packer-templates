@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- hosts: local
+  connection: local
   tasks:
     - name: get cloud image
       get_url:
