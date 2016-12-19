@@ -27,8 +27,6 @@
         cross_zones: yes
         os_type: "{{ osdescription }}"
         poll_async: true
-    - pause:
-        minutes: 1
     - name: Check template extracted
       local_action:
         module: cs_template
@@ -41,4 +39,4 @@
       easy_install:
         name: packer
     - name: Build and provision offical template
-      shell: "packer build template.json -var-file=./variables.json"
+      shell: "./packer build template.json -var-file=./variables.json"
