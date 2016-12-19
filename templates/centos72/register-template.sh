@@ -8,7 +8,7 @@ scp $name.vhd root@srep001.hay01.gdaas.com:/root/data/cloud/
 
 # determine ostype and register in cloudstack
 echo "Info: Looking up ostypeid -> ${osdescription}"
-ostypeid=$(sudo docker run --rm -v $PWD/data:/data -v $PWD/data/config:/cloudmonkey/config cloudstack/cloudstack-cloudmonkey list ostypes filter=id description="${osdescription}" | awk '/id = / {print $3}'|head -n 1)
+ostypeid=$(sudo docker run --rm -v $PWD/../../data:/data -v $PWD/../../data/config:/cloudmonkey/config cloudstack/cloudstack-cloudmonkey list ostypes filter=id description="${osdescription}" | awk '/id = / {print $3}'|head -n 1)
 
 if [ -z "${ostypeid}" ]; then
 	echo "Error: Could not find ostypeid for ${osdescription}"
