@@ -2,8 +2,8 @@
 
 unset HISTFILE
 
-echo "Remove SSH host keys"
-rm -f /etc/ssh/ssh_host*key*
+#cleanup authorized keys
+sudo rm ~/.ssh/authorized_keys
 
 echo "cleanup logs"
 sudo rm /var/log/cloud-init-output.log
