@@ -3,5 +3,5 @@
   tasks:
     - name: get cloud image
       get_url:
-        url: {{downloadurl}}
+        url: {{ downloadurl }}
         dest: image.qcow2
