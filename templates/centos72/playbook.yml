@@ -2,16 +2,6 @@
 - hosts: local
   connection: local
   tasks:
-    - name: create dummy file
-      get_url:
-        url: http://www.google.be
-        dest: ./google.html
-    - name: load variables
-      include_vars: config.yml
-    - shell: echo "image_$(date +%d-%m-%y-%H-%M-%S)"
-      register: image_name
-    - debug:
-        msg: "{{ image_name.stdout_lines[0] }}"
     - name: get cloud image
       get_url:
         url: "{{ downloadurl }}"
