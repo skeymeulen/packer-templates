@@ -44,6 +44,6 @@
     - name: extract packer
       unarchive: 
         src: ./packer.zip
-        dest: ./packer
+        dest: .
     - name: Build and provision offical template
       shell: "./packer template.json -var-file=./variables.json"
