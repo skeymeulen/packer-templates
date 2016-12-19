@@ -6,7 +6,7 @@
     "builders": [
         {
             "type": "cloudstack",
-            "api_url": "htwtp://10.5.11.13:8080/client/api",
+            "api_url": "http://10.5.11.13:8080/client/api",
             "api_key": "{{user `cloudstack_api_key`}}",
             "secret_key": "{{user `cloudstack_secret_key`}}",
             "hypervisor": "XenServer",
