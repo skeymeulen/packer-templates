@@ -21,3 +21,4 @@
       format: VHD
       cross_zones: yes
       os_type: "{{ osdescription }}"
+      poll_async: true
