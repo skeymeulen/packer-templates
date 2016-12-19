@@ -15,11 +15,11 @@
     - name: get cloud image
       get_url:
         url: "{{ downloadurl }}"
-        dest: "/tmp/{{ image_name.stdout_lines[0] }}.qcow2"
+        dest: ./image.qcow2
     - name: convert image
-      shell: "sudo docker run --rm=true -v /tmp:/tmp schvin/qemu-img convert -p -O vpc {{image_name.stdout_lines[0]}}.qcow2 {{image_name.stdout_lines[0]}}.vhd"
+      shell: "sudo docker run --rm=true -v $PWD:/tmp schvin/qemu-img convert -p -O vpc image.qcow2 image.vhd"
     - copy:
-        src: "/tmp/{{image_name.stdout_lines[0]}}.vhd"
+        src: ./image.vhd
         dest: /data/cloud/centos72.vhd
         delegate_to: srep001.hay01.gdaas.com
 
