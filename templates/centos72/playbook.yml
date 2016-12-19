@@ -11,4 +11,13 @@
     - name: convert image
       shell: "sudo docker run --rm=true -v $PWD:/tmp schvin/qemu-img convert -p -O vpc image.qcow2 image.vhd"
     - name: rsync image to srep001
-      shell: rsync ./image.vhd root@srep001.hay01.gdaas.com:/root/data/cloud/centos72.vhd
+      shell: "rsync ./image.vhd root@srep001.hay01.gdaas.com:/root/data/cloud/{{ name }}.vhd"
+    - name: Register template on cloudstack
+      local_action:
+      module: cs_template
+      name: "{{ name }}"
+      url: "http://srep001.hay01.gdaas.com/cloud/{{ name }}.vhd"
+      hypervisor: XenServer
+      format: VHD
+      cross_zones: yes
+      os_type: "{{ osdescription }}"
