@@ -3,8 +3,19 @@
   connection: local
   tasks:
     - name: load variables
-      include_vars: config.yml 
+      include_vars: config.yml
+    - shell: echo "image_$(date +%x-%H-%M-%S)"
+      register: image_name
+    - debug:
+        msg: "{{ image_name.stdout_lines[0] }}"
     - name: get cloud image
       get_url:
         url: "{{ downloadurl }}"
-        dest: /tmp/image.qcow2
+        dest: "/tmp/{{ image_name.stdout_lines[0] }}.qcow2"
+    - name: convert image
+      shell: "sudo docker run --rm=true -v $PWD:/tmp schvin/qemu-img convert -p -O vpc {{image_name.stdout_lines[0]}}.qcow2 /tmp/{{image_name.stdout_lines[0]}}.vhd"
+    - copy:
+      src: "/tmp/{{image_name.stdout_lines[0]}}.vhd"
+      dest: /data/cloud/centos72.vhd
+      delegate_to: srep001.hay01.gdaas.com
+
