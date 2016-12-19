@@ -1,9 +1,9 @@
 #!/bin/sh
 
 #download, convert and upload to repository.
-wget http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2 -O centos.qcow2
-sudo docker run --rm=true -v $PWD:/tmp schvin/qemu-img convert -p -O vpc centos.qcow2 centos.vhd
-scp centos.vhd root@srep001.hay01.gdaas.com:/root/data/cloud/centos/
+wget $downloadurl -O $name.qcow2
+sudo docker run --rm=true -v $PWD:/tmp schvin/qemu-img convert -p -O vpc $name.qcow2 $name.vhd
+scp $name.vhd root@srep001.hay01.gdaas.com:/root/data/cloud/
 
 
 # determine ostype and register in cloudstack
@@ -15,4 +15,4 @@ if [ -z "${ostypeid}" ]; then
 exit 1
 fi
 echo "Info: Found ostypeid ${ostypeid}"
-sudo docker run --rm -v $PWD/data:/data -v $PWD/data/config:/cloudmonkey/config cloudstack/cloudstack-cloudmonkey register template name="${name}" displaytext="${SIZE}" isextractable=${extractable} isfeatured=${featured} ispublic=${public} passwordenabled=${passwordenabled} ostypeid=${ostypeid} format=${format} hypervisor=${hypervisor} zoneid=${zoneid} url="${url}/cloud/centos/centos.vhd"
+sudo docker run --rm -v $PWD/data:/data -v $PWD/data/config:/cloudmonkey/config cloudstack/cloudstack-cloudmonkey register template name="${name}" displaytext="${SIZE}" isextractable=${extractable} isfeatured=${featured} ispublic=${public} passwordenabled=${passwordenabled} ostypeid=${ostypeid} format=${format} hypervisor=${hypervisor} zoneid=${zoneid} url="${url}/cloud/$name.vhd"
