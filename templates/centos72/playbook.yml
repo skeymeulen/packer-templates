@@ -14,11 +14,11 @@
       shell: "rsync ./image.vhd root@srep001.hay01.gdaas.com:/root/data/cloud/{{ name }}.vhd"
     - name: Register template on cloudstack
       local_action:
-      module: cs_template
-      name: "{{ name }}"
-      url: "http://srep001.hay01.gdaas.com/cloud/{{ name }}.vhd"
-      hypervisor: XenServer
-      format: VHD
-      cross_zones: yes
-      os_type: "{{ osdescription }}"
-      poll_async: true
+        module: cs_template
+        name: "{{ name }}"
+        url: "http://srep001.hay01.gdaas.com/cloud/{{ name }}.vhd"
+        hypervisor: XenServer
+        format: VHD
+        cross_zones: yes
+        os_type: "{{ osdescription }}"
+        poll_async: true
