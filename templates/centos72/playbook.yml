@@ -27,3 +27,11 @@
         cross_zones: yes
         os_type: "{{ osdescription }}"
         poll_async: true
+    - name: Check template extracted
+      local_action:
+        module: cs_template
+        api_url: "{{ cs_api_url }}"
+        api_key: "{{ cs_api_key }}"
+        api_secret: "{{ cs_api_secret_key }}"
+        name: "{{ name }}"
+        state: extracted
