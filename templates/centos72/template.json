@@ -2,7 +2,8 @@
     "variables": {
         "cloudstack_api_key": "{{env `cloudstack_api_key`}}",
         "cloudstack_secret_key":"{{env `cloudstack_secret_key`}}",
-        "template_output_name":"{{env `template_output_name}}"
+        "template_input_name":"env `template_input_name`",
+        "template_output_name":"{{env `template_output_name`}}"
     },
     "builders": [
         {
@@ -19,7 +20,7 @@
             "ssh_private_key_file": "/var/jenkins_home/.ssh/id_rsa",
             "network": "Server Network 1",
             "service_offering": "IaaS XS",
-            "source_template": "CentOS 7.2",
+            "source_template": "{{user `template_input_name}}",
             "zone": "TST01",
             "keypair": "glenn.bostoencloudalize.com-jenkins-85a946e85f4e43f11981edcad6e7db1e",
 
