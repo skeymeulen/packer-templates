@@ -13,7 +13,7 @@
     - name: get cloud image
       get_url:
         url: "{{ downloadurl }}"
-        dest: ./image.{{ cloud_image_format }}
+        dest: "./image.{{ cloud_image_format }}"
     - name: convert image
       shell: "sudo docker run --rm=true -v $PWD:/tmp schvin/qemu-img convert -p -O vpc image.{{ cloud_image_format }} image.vhd"
     - name: rsync image to srep001
