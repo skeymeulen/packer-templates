@@ -1,6 +1,6 @@
 name: debian863
 displaytext: 20GB
-osdescription: Debian 8.6.3
+osdescription: Other (64-bit)
 osversion: 7
 oscategory: debian
 format: vhd
