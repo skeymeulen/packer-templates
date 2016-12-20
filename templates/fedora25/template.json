@@ -1,0 +1,41 @@
+{
+    "variables": {
+        "cs_api_key": "{{env `cs_api_key`}}",
+        "cs_api_secret_key":"{{env `cs_api_secret_key`}}",
+        "template_input_name":"{{env `template_input_name`}}",
+        "template_output_name":"{{env `template_output_name`}}"
+    },
+    "builders": [
+        {
+            "type": "cloudstack",
+            "api_url": "http://10.5.11.13:8080/client/api",
+            "api_key": "{{user `cs_api_key`}}",
+            "secret_key": "{{user `cs_api_secret_key`}}",
+            "hypervisor": "XenServer",
+            "cidr_list": ["0.0.0.0/0"],
+            "ssh_username": "{{user `ssh_username`}}",
+            "ssh_pty": true,
+            "ssh_timeout": "10m",
+            "ssh_handshake_attempts": "200",
+            "ssh_private_key_file": "/var/jenkins_home/.ssh/id_rsa",
+            "network": "Server Network 1",
+            "service_offering": "IaaS XS",
+            "source_template": "{{user `template_input_name`}}",
+            "zone": "TST01",
+            "keypair": "glenn.bostoencloudalize.com-jenkins-85a946e85f4e43f11981edcad6e7db1e",
+
+            "template_name": "{{user `template_output_name`}}",
+            "template_display_text": "{{user `template_output_name`}}",
+            "template_featured": true,
+            "template_password_enabled": false,
+            "template_scalable": true,
+            "template_os": "Other (64-bit)"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/cleanup.sh"
+        }
+    ]
+}

@@ -3,9 +3,9 @@
   connection: local
   tasks:
     - name: load variables
-      include_vars: "{{ packer_config_file }}"
+      include_vars: ./config.yml
     - name: load secrets
-      include_vars: secrets.yml
+      include_vars: ../../secrets.yml
     - name: get cloud image
       get_url:
         url: "{{ downloadurl }}"
@@ -36,6 +36,6 @@
         name: "{{ name }}"
         state: extracted
     - name: Create packer_config.json
-      template: src=./ansible_templates/packer_config.json.j2 dest=./packer_config.json
+      template: src=../../ansible_templates/packer_config.json.j2 dest=./packer_config.json
     - name: Build and provision offical template
       shell: "packer build -var-file=packer_config.json template.json"
