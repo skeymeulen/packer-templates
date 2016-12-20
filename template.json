@@ -1,20 +1,19 @@
 {
     "variables": {
-        "cloudstack_api_key": "{{env `cloudstack_api_key`}}",
-        "cloudstack_secret_key":"{{env `cloudstack_secret_key`}}",
-        "template_input_name":"{{env `name`}}",
-        "template_output_name":"{{env `name`}}-gold",
-        "ssh_username":"{{env `ssh_username`}}"
+        "cs_api_key": "{{env `cs_api_key`}}",
+        "cs_secret_key":"{{env `cs_secret_key`}}",
+        "template_input_name":"centos72",
+        "template_output_name":"{{env `template_output_name`}}"
     },
     "builders": [
         {
             "type": "cloudstack",
             "api_url": "http://10.5.11.13:8080/client/api",
-            "api_key": "{{user `cloudstack_api_key`}}",
-            "secret_key": "{{user `cloudstack_secret_key`}}",
+            "api_key": "{{user `cs_api_key`}}",
+            "secret_key": "{{user `cs_secret_key`}}",
             "hypervisor": "XenServer",
             "cidr_list": ["0.0.0.0/0"],
-            "ssh_username": "{{user `ssh_username` }}",
+            "ssh_username": "centos",
             "ssh_pty": true,
             "ssh_timeout": "10m",
             "ssh_handshake_attempts": "100",
