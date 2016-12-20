@@ -2,7 +2,13 @@
 - hosts: local
   connection: local
   vars:
-    local_home: "{{ lookup('env','HOME') }}"
+    downloadurl: "{{ lookup('env','downloadurl') }}"
+    cloud_image_format:"{{ lookup('env','cloud_image_format') }}"
+    name:"{{ lookup('env','name') }}"
+    osdescription:"{{ lookup('env','osdescription') }}"
+    cs_api_url:"{{ lookup('env','cs_api_url') }}"
+    cs_api_key:"{{ lookup('env','cs_api_key') }}"
+    cs_api_secret_key:"{{ lookup('env','cs_api_secret_key') }}"
   tasks:
     - name: get cloud image
       get_url:
