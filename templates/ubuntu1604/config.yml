@@ -1,0 +1,17 @@
+name: ubuntu1604
+displaytext: 20GB
+osdescription: Ubuntu 16.04
+osversion: 7
+oscategory: ubuntu
+format: vhd
+hypervisor: XenServer
+extractable: true
+featured: false
+public: false
+passwordenabled: false
+zoneid: -1
+url: http://srep001.hay01.gdaas.com
+downloadurl: https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-disk1.vmdk
+ssh_username: ubuntu
+cloud_image_format: vmdk
+template_output_name: ubuntu1604-gold
