@@ -1,22 +1,15 @@
 ---
 - hosts: local
   connection: local
-  vars:
-    downloadurl: "{{ lookup('env','downloadurl') }}"
-    cloud_image_format: "{{ lookup('env','cloud_image_format') }}"
-    name: "{{ lookup('env','name') }}"
-    osdescription: "{{ lookup('env','osdescription') }}"
-    cs_api_url: "{{ lookup('env','cs_api_url') }}"
-    cs_api_key: "{{ lookup('env','cs_api_key') }}"
-    cs_api_secret_key: "{{ lookup('env','cs_api_secret_key') }}"
   tasks:
-    - debug: msg="{{ lookup('env','downloadurl') }} is an environment variable"
-    - debug:
-        msg: "{{ downloadurl }}"
+    - name: load variables
+      include_vars: "{{ packer_config_file }}"
+    - name: load secrets
+      include_vars: secrets.yml
     - name: get cloud image
       get_url:
         url: "{{ downloadurl }}"
-        dest: "./image.{{ cloud_image_format }}"
+        dest: ./image.{{ cloud_image_format }}
     - name: convert image
       shell: "sudo docker run --rm=true -v $PWD:/tmp schvin/qemu-img convert -p -O vpc image.{{ cloud_image_format }} image.vhd"
     - name: rsync image to srep001
@@ -42,5 +35,7 @@
         api_secret: "{{ cs_api_secret_key }}"
         name: "{{ name }}"
         state: extracted
+    - name: Create packer_config.json
+      template: src=ansible_templates/packer_config.json.j2 dest=packer_config.json
     - name: Build and provision offical template
-      shell: "packer build template.json"
+      shell: "packer build -var-file=packer_config.json template.json"
