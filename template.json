@@ -1,7 +1,7 @@
 {
     "variables": {
         "cs_api_key": "{{env `cs_api_key`}}",
-        "cs_secret_key":"{{env `cs_secret_key`}}",
+        "cs_api_secret_key":"{{env `cs_api_secret_key`}}",
         "template_input_name":"centos72",
         "template_output_name":"{{env `template_output_name`}}"
     },
@@ -10,7 +10,7 @@
             "type": "cloudstack",
             "api_url": "http://10.5.11.13:8080/client/api",
             "api_key": "{{user `cs_api_key`}}",
-            "secret_key": "{{user `cs_secret_key`}}",
+            "secret_key": "{{user `cs_api_secret_key`}}",
             "hypervisor": "XenServer",
             "cidr_list": ["0.0.0.0/0"],
             "ssh_username": "centos",
