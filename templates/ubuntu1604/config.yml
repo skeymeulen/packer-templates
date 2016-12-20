@@ -1,6 +1,6 @@
 name: ubuntu1604
 displaytext: 20GB
-osdescription: Ubuntu 16.04
+osdescription: Other (64-bit)
 osversion: 7
 oscategory: ubuntu
 format: vhd
