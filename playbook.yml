@@ -2,10 +2,8 @@
 - hosts: local
   connection: local
   tasks:
-    - name: load variables
-      include_vars: "{{ packer_config_file }}"
-    - name: load secrets
-      include_vars: secrets.yml
+    - vars:
+        local_home: "{{ lookup('env','HOME') }}"
     - name: get cloud image
       get_url:
         url: "{{ downloadurl }}"
@@ -36,4 +34,4 @@
         name: "{{ name }}"
         state: extracted
     - name: Build and provision offical template
-      shell: "packer build -var-file=./variables.json template.json"
+      shell: "packer build template.json"
