@@ -2,7 +2,7 @@
     "variables": {
         "cs_api_key": "{{env `cs_api_key`}}",
         "cs_api_secret_key":"{{env `cs_api_secret_key`}}",
-        "template_input_name":"{{env `name`}}",
+        "template_input_name":"{{env `template_input_name`}}",
         "template_output_name":"{{env `template_output_name`}}"
     },
     "builders": [
