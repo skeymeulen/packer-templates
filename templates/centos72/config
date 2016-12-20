@@ -1,5 +1,5 @@
 name="centos72"
-displaytext"20GB"
+displaytext="20GB"
 osdescription="CentOS 7"
 osversion=7
 oscategory="centos"
