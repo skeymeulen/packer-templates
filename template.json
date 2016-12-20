@@ -2,7 +2,7 @@
     "variables": {
         "cs_api_key": "{{env `cs_api_key`}}",
         "cs_api_secret_key":"{{env `cs_api_secret_key`}}",
-        "template_input_name":"centos72",
+        "template_input_name":"{{env `name`}}",
         "template_output_name":"{{env `template_output_name`}}"
     },
     "builders": [
@@ -13,7 +13,7 @@
             "secret_key": "{{user `cs_api_secret_key`}}",
             "hypervisor": "XenServer",
             "cidr_list": ["0.0.0.0/0"],
-            "ssh_username": "centos",
+            "ssh_username": "{{user `ssh_username`}}",
             "ssh_pty": true,
             "ssh_timeout": "10m",
             "ssh_handshake_attempts": "100",
