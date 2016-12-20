@@ -36,6 +36,6 @@
         name: "{{ name }}"
         state: extracted
     - name: Create packer_config.json
-      template: src=ansible_templates/packer_config.json.j2 dest=packer_config.json
+      template: src=./ansible_templates/packer_config.json.j2 dest=./packer_config.json
     - name: Build and provision offical template
       shell: "packer build -var-file=packer_config.json template.json"
