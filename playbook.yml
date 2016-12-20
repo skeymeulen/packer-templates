@@ -1,9 +1,9 @@
 ---
 - hosts: local
   connection: local
+  vars:
+    local_home: "{{ lookup('env','HOME') }}"
   tasks:
-    - vars:
-        local_home: "{{ lookup('env','HOME') }}"
     - name: get cloud image
       get_url:
         url: "{{ downloadurl }}"
