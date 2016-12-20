@@ -10,6 +10,8 @@
     cs_api_key: "{{ lookup('env','cs_api_key') }}"
     cs_api_secret_key: "{{ lookup('env','cs_api_secret_key') }}"
   tasks:
+    - debug:
+        msg: "{{ downloadurl }}"
     - name: get cloud image
       get_url:
         url: "{{ downloadurl }}"
