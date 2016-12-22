@@ -36,7 +36,7 @@
         {
             "type": "shell",
             "script": "scripts/xs-tools.sh",
-            "execute_command": "sh '{{ .Path }}' -n"
+            "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} {{ .Path }} -n"
         },
         {
             "type": "shell",
