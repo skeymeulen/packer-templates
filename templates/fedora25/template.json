@@ -35,10 +35,12 @@
     "provisioners": [
         {
             "type": "shell",
-            "scripts": [
-                "scripts/xs-tools.sh",
-                "scripts/cleanup.sh"
-            ]
+            "script": "scripts/xs-tools.sh",
+            "execute_command": "sh '{{ .Path }}' -n"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/cleanup.sh"
         }
     ]
 }
