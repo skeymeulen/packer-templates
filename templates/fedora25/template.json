@@ -40,7 +40,12 @@
         },
         {
             "type": "shell",
-            "script": "scripts/cleanup.sh"
+            "inline": "reboot"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/cleanup.sh",
+            "pause_before": "20s"
         }
     ]
 }

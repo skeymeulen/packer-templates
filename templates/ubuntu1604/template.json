@@ -40,16 +40,21 @@
         },
         {
             "type": "shell",
+            "inline": "sudo mv /tmp/99_cloudstack.cfg /etc/cloud/cloud.cfg.d/99_cloudstack.cfg"
+        },
+        {
+            "type": "shell",
             "script": "scripts/xs-tools.sh",
             "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} {{ .Path }} -n"
         },
         {
             "type": "shell",
-            "script": "scripts/cleanup.sh"
+            "inline": "reboot"
         },
         {
             "type": "shell",
-            "inline": "sudo mv /tmp/99_cloudstack.cfg /etc/cloud/cloud.cfg.d/99_cloudstack.cfg"
+            "script": "scripts/cleanup.sh",
+            "pause_before": "20s"
         }
     ]
 }
